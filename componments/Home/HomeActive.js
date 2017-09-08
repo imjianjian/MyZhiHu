@@ -6,16 +6,18 @@ import {
   View,FlatList,Image
 } from 'react-native';
 
-import ListData from '../../data/HomeActive'
+import ListData from '../../data/HomeActive';
+
+// var avator = require('../../images/avator.png');
 
 class ListItem extends Component{
-
+    
   render(){
     return(
       <View style={styles.cardView}>
           <View style={styles.header}>
             <View style={styles.headerLeft}>
-              <Image style={styles.avator} source={require('../../images/avator.png')}/>
+              <Image style={styles.avator} source={require("../../images/talking.png")}/>
                 <Text style={styles.type}>   热门内容 · 来自 · {this.props.ListData.type}</Text>
             </View>
             <Image style={styles.more} source={require('../../images/more.png')}/>
