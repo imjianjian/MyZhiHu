@@ -11,7 +11,6 @@ import HomeActive from '../componments/Home/HomeActive'
 import HomeHot from '../componments/Home/HomeHot'
 import HomeFound from '../componments/Home/HomeFound'
 
-
 // 搜索框
 class SearchBox extends Component{
 

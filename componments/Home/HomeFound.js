@@ -3,7 +3,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,Image,FlatList,Button,ScrollView
+  View,Image,FlatList,Button,ScrollView,TouchableOpacity,TouchableHighlight
 } from 'react-native';
 
 import ListData from '../../data/HomeFound'
@@ -16,26 +16,36 @@ class Header extends Component{
         <View style={styles.header}>
           <Image style={styles.banner} source={require('../../images/HomeFound/banner1.jpg')}/>
           <View style={styles.footer}>
-            <View style={styles.footerItem}>
-              <Image style={styles.footerIcon} source={require('../../images/HomeFound/answer.png')}/>
-              <Text style={styles.iconText}>回答</Text>
-            </View>
-            <View style={styles.footerItem}>
-              <Image style={styles.footerIcon} source={require('../../images/HomeFound/video.png')}/>
-              <Text style={styles.iconText}>视频</Text>
-            </View>
-            <View style={styles.footerItem}>
-              <Image style={styles.footerIcon} source={require('../../images/HomeFound/column.png')}/>
-              <Text style={styles.iconText}>专栏</Text>
-            </View>
-            <View style={styles.footerItem}>
-              <Image style={styles.footerIcon} source={require('../../images/HomeFound/collect.png')}/>
-              <Text style={styles.iconText}>收藏夹</Text>
-            </View>
-            <View style={styles.footerItem}>
-              <Image style={styles.footerIcon} source={require('../../images/HomeFound/meeting.png')}/>
-              <Text style={styles.iconText}>圆桌</Text>
-            </View>
+            <TouchableOpacity activeOpacity={0.6} >
+              <View style={styles.footerItem}>
+                <Image style={styles.footerIcon} source={require('../../images/HomeFound/answer.png')}/>
+                <Text style={styles.iconText}>回答</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.6}>
+              <View style={styles.footerItem}>
+                <Image style={styles.footerIcon} source={require('../../images/HomeFound/video.png')}/>
+                <Text style={styles.iconText}>视频</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.6}>
+              <View style={styles.footerItem}>
+                <Image style={styles.footerIcon} source={require('../../images/HomeFound/column.png')}/>
+                <Text style={styles.iconText}>专栏</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.6}>
+              <View style={styles.footerItem}>
+                <Image style={styles.footerIcon} source={require('../../images/HomeFound/collect.png')}/>
+                <Text style={styles.iconText}>收藏夹</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.6}>
+              <View style={styles.footerItem}>
+                <Image style={styles.footerIcon} source={require('../../images/HomeFound/meeting.png')}/>
+                <Text style={styles.iconText}>圆桌</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       )

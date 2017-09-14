@@ -17,7 +17,7 @@ class ListItem extends Component{
       <View style={styles.cardView}>
           <View style={styles.header}>
             <View style={styles.headerLeft}>
-              <Image style={styles.avator} source={require("../../images/talking.png")}/>
+              <Image style={styles.avator} source={require("../../images/avator.png")}/>
                 <Text style={styles.type}>   热门内容 · 来自 · {this.props.ListData.type}</Text>
             </View>
             <Image style={styles.more} source={require('../../images/more.png')}/>
