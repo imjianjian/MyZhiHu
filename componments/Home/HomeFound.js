@@ -14,7 +14,7 @@ class Header extends Component{
     render(){
       return(
         <View style={styles.header}>
-          <Image style={styles.banner} source={require('../../images/HomeFound/banner1.jpg')}/>
+          <Image style={styles.banner} source={require('../../images/banner/banner1.jpg')}/>
           <View style={styles.footer}>
             <TouchableOpacity activeOpacity={0.6} >
               <View style={styles.footerItem}>
