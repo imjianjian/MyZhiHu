@@ -6,7 +6,8 @@ import {
   View,Image,FlatList,Button,ScrollView,TouchableOpacity,TouchableHighlight
 } from 'react-native';
 
-import ListData from '../../data/HomeFound'
+import ListData from '../../data/HomeFound';
+import Swiper from 'react-native-swiper';
 
 class Header extends Component{
 
@@ -14,7 +15,21 @@ class Header extends Component{
     render(){
       return(
         <View style={styles.header}>
-          <Image style={styles.banner} source={require('../../images/banner/banner1.jpg')}/>
+         <Swiper 
+            showsButtons={false}
+            autoplay={2000}
+            >
+            <View style={styles.slide}>
+              <Image
+                style={styles.banner}
+                source={require('../../images/banner/banner1.jpg')}/>
+            </View>
+            <View>
+              <Image 
+                style={styles.banner}
+                source={require('../../images/banner/banner2.jpg')}/>
+            </View>
+          </Swiper>
           <View style={styles.footer}>
             <TouchableOpacity activeOpacity={0.6} >
               <View style={styles.footerItem}>
@@ -98,6 +113,7 @@ export default class HomeFound extends Component {
           <Header/>
           <FlatList
             data={ListData}
+            keyExtractor={(item, index) => item.id}
             renderItem={({item}) => <ListItem ListData={item}/>}
           />
         </ScrollView>
@@ -113,11 +129,18 @@ const styles = StyleSheet.create({
   header:{
     width:'100%',
     height:280,
-    backgroundColor:"white",
+    backgroundColor:"white"
+  },
+  slide: {
+    height:200,
+    width:"100%",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   banner:{
-    width:'100%',
-    height:200
+    resizeMode :"contain",
+    width:"100%",
+    height:"100%"
   },
   footer:{
     flexDirection:"row",
@@ -129,7 +152,8 @@ const styles = StyleSheet.create({
   },
   footerItem:{
     // backgroundColor:'hotpink',
-    marginTop:10
+    marginTop:10,
+    marginBottom:10
   },
   iconText:{
     fontSize:12,

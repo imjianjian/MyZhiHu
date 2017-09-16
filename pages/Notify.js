@@ -183,6 +183,7 @@ class Atten extends Component {
         <UnreadBar num="0"/>
         <FlatList
           data={ListData}
+          keyExtractor={(item, index) => item.id}
           renderItem={({item}) => <AttenList ListData={item}/>}
         />
         <View>

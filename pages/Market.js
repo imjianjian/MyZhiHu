@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import Swiper from 'react-native-swiper';
+import MarketKnowMore from '../data/MarketKnowMore.json';
 
 var {height, width} = Dimensions.get('window');
 
@@ -95,10 +96,14 @@ class HeaderSwiper extends Component{
         showsButtons={false}
         autoplay={2000}>
           <View style={swiperStyles.slide}>
-            <Image source={require('../images/banner/banner2.jpg')}/>
+            <Image
+              style={swiperStyles.img}
+              source={require('../images/banner/banner2.jpg')}/>
           </View>
           <View style={swiperStyles.slide}>
-            <Image source={require('../images/banner/banner3.jpg')}/>
+            <Image 
+              style={swiperStyles.img}
+              source={require('../images/banner/banner3.jpg')}/>
           </View>
         </Swiper>
       </View>
@@ -110,14 +115,18 @@ const swiperStyles = StyleSheet.create({
   content:{
     height:200,
     width:width,
-  },
-  wrapper: {
+    backgroundColor:'white'
   },
   slide: {
-    height:200,
+    height:"100%",
+    width:"100%",
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#9DD6EB',
+  },
+  img:{
+    resizeMode :"contain",
+    width:"100%",
+    height:"100%"
   },
   text: {
     color: '#fff',
@@ -240,21 +249,6 @@ const EDKMListStyle = StyleSheet.create({
 
 class EveryDayKnowMore extends Component{
   
-  ListData = [
-    {
-      title:"心理：【不撞南墙不回头】有救吗？",
-      time:"02:21"
-    },
-    {
-      title:"职场：【低职高薪】为什么合理？",
-      time:"02:22"
-    },
-    {
-      title:"博闻：早睡早起真的更健康嘛？",
-      time:"02:11"
-    }
-  ]
-
   render(){
     return(
       <View style={EDKMStyle.content}>
@@ -262,7 +256,8 @@ class EveryDayKnowMore extends Component{
           <Text>每日知新</Text>
         </View>
         <FlatList
-        data={this.ListData}
+        data={MarketKnowMore}
+        keyExtractor={(item, index) => item.id}
         renderItem={({item}) => <EDKMList data={item}/>}
       />
 
@@ -340,20 +335,49 @@ class TodayDiscounts  extends Component{
           <View style={TodayStyle.headRight}>
             <Text style={TodayStyle.headRight}>距结束</Text>
             <Text style={TodayStyle.time}>01</Text>
-            <Text>:</Text>
+            <Text> : </Text>
             <Text style={TodayStyle.time}>14</Text>
-            <Text>:</Text>
+            <Text> : </Text>
             <Text style={TodayStyle.time}>30</Text>
           </View>
         </View>
 
-        <ScrollView showsHorizontalScrollIndicator={true}>
-          <View>
-            <Text>1</Text>
-          </View>
-          <View>
-            <Text>2</Text>
-          </View>
+        <ScrollView 
+        horizontal ={true}>
+
+            <View style={TodayStyle.scrollItem}>
+              <Image 
+              source={require('../images/book1.jpg')}
+              style={TodayStyle.scrollImg}/>
+              <Text style={TodayStyle.scrollTitle}>不美的美学：从古希腊到基督教</Text>
+              <Text style={TodayStyle.scrollAuthor}>Johann Faust</Text>
+              <Text style={TodayStyle.scrollPrice}>￥9.9</Text>
+            </View>
+            <View style={TodayStyle.scrollItem}>
+              <Image 
+              source={require('../images/book2.jpg')}
+              style={TodayStyle.scrollImg}/>
+              <Text style={TodayStyle.scrollTitle}>不美的美学：从古希腊到基督教</Text>
+              <Text style={TodayStyle.scrollAuthor}>Johann Faust</Text>
+              <Text style={TodayStyle.scrollPrice}>￥9.9</Text>
+            </View>
+            <View style={TodayStyle.scrollItem}>
+              <Image 
+              source={require('../images/book3.jpg')}
+              style={TodayStyle.scrollImg}/>
+              <Text style={TodayStyle.scrollTitle}>不美的美学：从古希腊到基督教</Text>
+              <Text style={TodayStyle.scrollAuthor}>Johann Faust</Text>
+              <Text style={TodayStyle.scrollPrice}>￥9.9</Text>
+            </View>
+            <View style={TodayStyle.scrollItem}>
+              <Image 
+              source={require('../images/book4.jpg')}
+              style={TodayStyle.scrollImg}/>
+              <Text style={TodayStyle.scrollTitle}>不美的美学：从古希腊到基督教</Text>
+              <Text style={TodayStyle.scrollAuthor}>Johann Faust</Text>
+              <Text style={TodayStyle.scrollPrice}>￥9.9</Text>
+            </View>
+
         </ScrollView>
 
       </View>
@@ -364,7 +388,8 @@ class TodayDiscounts  extends Component{
 const TodayStyle=StyleSheet.create({
   content:{
     backgroundColor:"white",
-    marginTop:10
+    marginTop:10,
+    marginBottom:30
   },
   head:{
     height:60,
@@ -397,18 +422,34 @@ const TodayStyle=StyleSheet.create({
   headRight:{
     flexDirection:"row",
     alignItems:'center'
+  },
+  scrollItem:{
+    alignItems:"center",
+    width:width*0.4,
+    borderWidth:1,
+    borderColor:'#eee',
+    borderRadius:10,
+    margin:10,
+    padding:10
+  },
+  scrollImg:{
+    width:70,
+    height:70,
+    borderRadius:10,
+    margin:5
+  },
+  scrollTitle:{
+    lineHeight:20
+  },
+  scrollAuthor:{
+    color:"#ccc",
+    lineHeight:25
+  },
+  scrollPrice:{
+    color:'red',
+    lineHeight:25
   }
 })
-
-class GuessYouWant extends Component{
-  render(){
-    return(
-      <View>
-        <Text>Live猜你喜欢</Text>
-      </View>
-    )
-  }
-}
 
 export default class Market extends Component {
   render() {
@@ -420,7 +461,6 @@ export default class Market extends Component {
           <HeaderAction/>
           <EveryDayKnowMore/>
           <TodayDiscounts/>
-          <GuessYouWant/>
         </ScrollView>
       </View>
     );

@@ -34,6 +34,7 @@ export default class HomeHot extends Component {
       <View style={styles.container}>
         <FlatList
           data={ListData}
+          keyExtractor={(item, index) => item.id}
           renderItem={({item}) => <ListItem ListData={item}/>}
         />
       </View>

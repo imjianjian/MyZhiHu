@@ -75,6 +75,7 @@ export default class Idea extends Component {
           </View>
           <FlatList
             data={ListData}
+            keyExtractor={(item, index) => item.id}
             renderItem={({item}) => <ListItem ListData={item}/>}
           />
         </ScrollView>

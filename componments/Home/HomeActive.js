@@ -42,6 +42,7 @@ export default class HomeActive extends Component {
       <View style={styles.container}>
         <FlatList
           data={ListData}
+          keyExtractor={(item, index) => item.id}
           renderItem={({item}) => <ListItem ListData={item}/>}
         />
       </View>
