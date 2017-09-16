@@ -92,9 +92,10 @@ class HeaderSwiper extends Component{
     return(
       <View style={swiperStyles.content}>
         <Swiper 
-        style={swiperStyles.wrapper} 
         showsButtons={false}
-        autoplay={2000}>
+        autoplay={true}
+        autoplayTimeout={2}
+        >
           <View style={swiperStyles.slide}>
             <Image
               style={swiperStyles.img}

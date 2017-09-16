@@ -2,34 +2,75 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  Text,
+  Text,Dimensions,
   View,Image,FlatList,Button,ScrollView,TouchableOpacity,TouchableHighlight
 } from 'react-native';
 
 import ListData from '../../data/HomeFound';
 import Swiper from 'react-native-swiper';
 
-class Header extends Component{
+var {width,height} = Dimensions.get('window')
 
+class HeaderSwiper extends Component{
+  render(){
+    return(
+      <View style={swiperStyles.content}>
+        <Swiper 
+        showsButtons={false}
+        autoplay={true}
+        autoplayTimeout={2}
+        >
+          <View style={swiperStyles.slide}>
+            <Image
+              style={swiperStyles.img}
+              source={require('../../images/banner/banner1.jpg')}/>
+          </View>
+          <View style={swiperStyles.slide}>
+            <Image 
+              style={swiperStyles.img}
+              source={require('../../images/banner/banner2.jpg')}/>
+          </View>
+        </Swiper>
+      </View>
+    )
+  }
+}
+
+const swiperStyles = StyleSheet.create({
+  content:{
+    height:200,
+    width:width,
+    backgroundColor:'white'
+  },
+  slide: {
+    height:"100%",
+    width:"100%",
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  img:{
+    resizeMode :"contain",
+    width:"100%",
+    height:"100%"
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+  }
+})
+
+class Header extends Component{
 
     render(){
       return(
         <View style={styles.header}>
-         <Swiper 
-            showsButtons={false}
-            autoplay={2000}
-            >
-            <View style={styles.slide}>
-              <Image
-                style={styles.banner}
-                source={require('../../images/banner/banner1.jpg')}/>
-            </View>
-            <View>
-              <Image 
-                style={styles.banner}
-                source={require('../../images/banner/banner2.jpg')}/>
-            </View>
-          </Swiper>
+
+          {/* <HeaderSwiper/> */}
+          <Image
+           style={styles.headerImg}
+           source={require('../../images/banner/banner1.jpg')}/>
+
           <View style={styles.footer}>
             <TouchableOpacity activeOpacity={0.6} >
               <View style={styles.footerItem}>
@@ -131,16 +172,10 @@ const styles = StyleSheet.create({
     height:280,
     backgroundColor:"white"
   },
-  slide: {
+  headerImg:{
+    width:"100%",
     height:200,
-    width:"100%",
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  banner:{
-    resizeMode :"contain",
-    width:"100%",
-    height:"100%"
+    resizeMode :"contain"
   },
   footer:{
     flexDirection:"row",

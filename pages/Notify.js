@@ -94,6 +94,7 @@ class AttenList extends Component{
           </View>
           <View style={AttenListStyle.buttonBox}>
             <Button title="相互关注"
+            onPress={()=>{;}}
             style={AttenListStyle.button}/>
           </View>
         </View>
